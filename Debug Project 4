@@ -1,0 +1,38 @@
+/*
+  Fruitful Heads Up
+
+  Use your circuitry knowledge to transform this "fruity" game of heads up into a game for engineers.
+*/
+
+#include <LiquidCrystal.h>            //the liquid crystal library contains commands for printing to the display
+LiquidCrystal lcd(13, 12, 11, 10, 9, 8);     // tell the RedBoard what pins are connected to the display
+
+int buttonPin = 2;                    //pin that the button is connected to
+int buzzerPin = 6;                    //pin for driving the buzzer
+int buttonPressTime = 0;              //variable to show how much time the player has left to guess the word (and press the button)
+
+long timeLimit = 15000;               //time limit for the player to guess each word
+long startTime = 0;                   //used to measure time that has passed for each word
+int roundNumber = 0;                        //keeps track of the roundNumber so that it can be displayed at the end of the game
+const int arraySize = 25;
+
+const char* words[arraySize] = {"lemon", "watermelon", "grapes", "strawberry", "apple", "kiwi", "mango", "guava", "pomegranate",
+                                "peach", "orange", "dragonfruit", "banana", "grapefruit", "cantaloupe", "starfruit", "blackberry",
+                                "cherry", "lime", "raspberry", "blueberry", "acai", "plum", "pear", "pineapple"
+                               };
+
+// the start value in the sequence array must have a value that could never be an index of an array
+// or at least a value outside the range of 0 to the size of the words array - 1; in this case, it can't be between 0 to 24
+int sequence[] = { -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1}; //start with an array full of -1's
+
+void setup() {
+
+  pinMode(buttonPin, INPUT_PULLUP);       //set the button pin as an input
+
+  lcd.begin(16, 2);                       //tell the LCD library the size of the screen
+
+  generateRandomOrder();                  //generate an array of random numbers from 0 to 24 that will determine which order the words are shown in
+
+  showStartSequence();                    //print the start sequence text
+
+}
