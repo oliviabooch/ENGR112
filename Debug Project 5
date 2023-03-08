@@ -1,5 +1,5 @@
 /*
-  Students need to change the code to first say “Arr matey, we have our heading! Savvy!”
+  Students need to change the code to first say “Arr matey, we have our heading! Savvy!” in the setup.
   
   The robot needs to be able to move forwards, sense an object on its own, pause for 5 seconds, and turn away from it.
   
