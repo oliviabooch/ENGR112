@@ -1,7 +1,10 @@
 /*
-  Fruitful Heads Up
+  Fruitful Heads Up--
 
-  Use your circuitry knowledge to transform this "fruity" game of heads up into a game for engineers.
+  Use your circuitry knowledge to transform this "fruity" game of heads up into a game for engineers! 
+  
+  Students should create 10 different engineering career categories that are of interest to the group.
+  
 */
 
 #include <LiquidCrystal.h>            //the liquid crystal library contains commands for printing to the display
